@@ -4,10 +4,7 @@ import laravel from 'laravel-vite-plugin';
 export default defineConfig({
     plugins: [
         laravel({
-            input: [
-                'resources/css/app.css', 
-                'resources/js/app.js'
-            ],
+            input: ['resources/css/app.css', 'resources/js/app.js'],
             refresh: true,
         }),
     ],
@@ -17,8 +14,12 @@ export default defineConfig({
         emptyOutDir: true,
         rollupOptions: {
             output: {
-                entryFileNames: `[name].js`,
-                assetFileNames: `[name].[ext]`
+                // Fuerza los nombres de archivo planos (sin hashes)
+                entryFileNames: 'app.js',
+                assetFileNames: 'app.[ext]',
+                // Desactiva la subcarpeta .vite para el manifest
+                chunkFileNames: '[name].js',
+                manualChunks: undefined,
             }
         }
     }
