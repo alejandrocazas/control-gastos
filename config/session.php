@@ -156,7 +156,7 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN'),
+    'domain' => env('SESSION_DOMAIN','.control-gastos-production-01fb.up.railway.app'),
 
     /*
     |--------------------------------------------------------------------------
@@ -169,8 +169,7 @@ return [
     |
     */
 
-    'secure' => env('SESSION_SECURE_COOKIE'),
-
+    'secure' => env('SESSION_SECURE_COOKIE', true),
     /*
     |--------------------------------------------------------------------------
     | HTTP Access Only
@@ -199,7 +198,7 @@ return [
     |
     */
 
-    'same_site' => env('SESSION_SAME_SITE', 'lax'),
+    'same_site' => 'none',
 
     /*
     |--------------------------------------------------------------------------
